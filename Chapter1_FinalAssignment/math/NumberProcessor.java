@@ -56,6 +56,7 @@ public abstract class NumberProcessor{
 	
 	//get 'n'th fibonacci number where n >= 0
 	//nr 1.000.000 took 12.077 milliseconds to compute
+	//new variant only takes 10.875 milliseconds!
 	public static BigInteger fib(int n){
 		if(n < 0){
 			throw new IllegalArgumentException("n must be greater than or equal to 0");
@@ -65,6 +66,20 @@ public abstract class NumberProcessor{
 			return BigInteger.valueOf(n);
 		}
 		
+		BigInteger previous = BigInteger.valueOf(0);
+		BigInteger current = BigInteger.valueOf(1);
+		
+		for(int i = 2; i <= n; i++){
+			BigInteger temp = current;
+			current = current.add(previous);
+			previous = temp;
+		}
+		
+		return current;
+	}
+	
+	//old fib function
+	private static BigInteger fibOld(int n){
 		BigInteger[] fibValues = new BigInteger[]{BigInteger.valueOf(0), BigInteger.valueOf(1)};
 		
 		for(int i = fibValues.length; i <= n; i++){
@@ -74,6 +89,7 @@ public abstract class NumberProcessor{
 				System.gc();
 			}
 		}
+		
 		return fibValues[1];
 	}
 	
