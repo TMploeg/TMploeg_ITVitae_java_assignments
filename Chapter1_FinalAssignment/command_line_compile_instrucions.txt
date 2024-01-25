@@ -1,0 +1,3 @@
+javac Chapter1Main.java NumberProcessor.java
+
+since these classes exist in different packages, they both need to be explicitly selected for compilation
