@@ -1,0 +1,9 @@
+Schrijf een programma dat het volgende kan:​
+
+- onderdeel van een package​
+- importeert een andere package​
+- bevat meerdere comments​
+- bevat een class​
+    - Heeft variabelen met verschillende (non) access variables​
+    - Heeft methoden met verschillende (non) access variables ​
+- compileert​
