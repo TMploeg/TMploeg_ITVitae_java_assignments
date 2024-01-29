@@ -1,8 +1,8 @@
 package animals;
 
 public abstract class Animal{
-	protected String name;
-	protected AnimalDomain domain;
+	private final String name;
+	private final AnimalDomain domain;
 	
 	protected Animal(String name, AnimalDomain animalDomain){
 		this.name = name;
