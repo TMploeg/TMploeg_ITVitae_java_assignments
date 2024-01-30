@@ -2,7 +2,7 @@ import math.NumberProcessor;
 import animals.*;
 import java.util.Scanner;
 
-public class Chapter1Main{
+public class Week1Main{
 	public static void main(String[] args){
 		showMenu();
 	}
