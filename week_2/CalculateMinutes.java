@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class CalculateMinutes{
-	public void run(){
+	public static void run(){
 		int years = getPositiveNumberInput("Nr. or years:");
 		int months = getPositiveNumberInput("Nr. or months:");
 		int days = getPositiveNumberInput("Nr. or days:");
