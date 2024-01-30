@@ -4,7 +4,8 @@ public class Week2Main{
 			"calculate minutes",
 			"convert Celcius to Fahrenheit",
 			"convert Fahrenheit to Celcius",
-			"calculate velocity"
+			"calculate velocity",
+			"caesar encode"
 		};
 		
 		for(int i = 0; i < options.length; i++){
@@ -57,5 +58,10 @@ public class Week2Main{
 		System.out.println("speed in meters/second: " + vData.metersPerSec());
 		System.out.println("speed in km/hour: " + vData.kmPerHour());
 		System.out.println("speed in miles/hour: " + vData.milesPerHour());
+	}
+	
+	private static void runCaesarEncode(){
+		String code = ConsoleHelper.getStringInput("what is your code?").toUpperCase();
+		System.out.println("encoded: " + Encoder.caesarEncode(code));
 	}
 }

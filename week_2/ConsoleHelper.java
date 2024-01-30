@@ -43,6 +43,21 @@ public class ConsoleHelper{
 		}
 	}
 	
+	public static String getStringInput(String message){
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true){
+			System.out.print(message + " ");
+			String input = scanner.nextLine();
+			
+			if(input.length() > 0){
+				return input;
+			}
+			
+			System.out.println("error: input must have at least one character");
+		}
+	}
+	
 	private static boolean isPositiveInteger(String nrString){
 		if(nrString == null){
 			throw new NullPointerException("nrString cannot be null");
