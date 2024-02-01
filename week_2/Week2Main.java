@@ -5,7 +5,8 @@ public class Week2Main {
       "convert Celcius to Fahrenheit",
       "convert Fahrenheit to Celcius",
       "calculate velocity",
-      "caesar encode"
+      "caesar encode",
+      "calculate even/odd sum of n"
     };
 
     for (int i = 0; i < options.length; i++) {
@@ -36,6 +37,9 @@ public class Week2Main {
         break;
       case 5:
         runCaesarEncode();
+        break;
+      case 6:
+        runCalculateEvenOddSum();
         break;
       default:
         throw new RuntimeException("should not reach");
@@ -71,5 +75,18 @@ public class Week2Main {
   private static void runCaesarEncode() {
     String code = ConsoleHelper.getStringInput("what is your code?").toUpperCase();
     System.out.println("encoded: " + Encoder.caesarEncode(code));
+  }
+
+  private static void runCalculateEvenOddSum() {
+    int number =
+        ConsoleHelper.getPositiveNumberInputInRange(
+            "Please enter a positive whole number:", 1, Integer.MAX_VALUE);
+
+    int oddSum = EvenOddSumCalculator.calculateSumOfOddNumbers(number);
+    int evenSum = EvenOddSumCalculator.calculateSumOfEvenNumbers(number);
+
+    System.out.println("Sum of odd numbers op to " + number + ": " + oddSum);
+    System.out.println("Sum of even numbers op to " + number + ": " + evenSum);
+    System.out.println("Difference between sums: " + (oddSum - evenSum));
   }
 }
