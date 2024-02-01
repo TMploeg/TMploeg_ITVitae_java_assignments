@@ -9,7 +9,7 @@ public class Encoder {
     String encodedStr = "";
 
     for (int i = 0; i < str.length(); i++) {
-      encodedStr += (char) (str[i] + CAESAR_OFFSET);
+      encodedStr += (char) (str.charAt(i) + CAESAR_OFFSET);
     }
 
     return encodedStr;
