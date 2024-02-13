@@ -2,8 +2,6 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Week3Main{
-	private record Test(String value, boolean expected){}
-	
 	public static void main(String[] args){
 		displayLucasNumbers(askPositiveIntInput("Please enter a number that is greater than or equal to 1:"));
 	}
