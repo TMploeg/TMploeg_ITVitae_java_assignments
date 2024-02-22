@@ -1,12 +1,61 @@
 import fib.*;
+import input.*;
 import java.util.Scanner;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Optional;
 
 public class Week5Main {
-	public static void main(String[] args){
-		int n = getIntegerInput();
-		CalculateMethod method = getMethodInput();
+	private enum Flag { 
+		FIB,
+		INPUT;
 		
-		Fibonacci.calculate(n, method);
+		private String value;
+		
+		private Flag(){
+			this.value = "-" + this.toString().toLowerCase();
+		}
+		
+		public static Optional<Flag> getByValue(String value){
+			for(Flag flag : values()){
+				if(flag.value.equals(value)){
+					return Optional.of(flag);
+				}
+			}
+			
+			return Optional.empty();
+		}
+	}
+	
+	public static void main(String[] args){
+		if(args.length > 1){
+			throw new IllegalArgumentException("no more than one arg allowed");
+		}
+		
+		List<Flag> flags = getFlags(args);
+		boolean hasFibFlag = flags.contains(Flag.FIB);
+		boolean hasInputFlag = flags.contains(Flag.INPUT);
+		
+		if(flags.contains(Flag.FIB)){
+			int n = getIntegerInput();
+			CalculateMethod method = getMethodInput();
+			
+			Fibonacci.calculate(n, method);
+		}
+		else if(flags.contains(Flag.INPUT)){
+			InputAnalyzer.analyze().display();
+		}
+	}
+	
+	private static List<Flag> getFlags(String[] args){
+		final List<Flag> flags = new LinkedList<Flag>();
+		
+		for(String s : args){
+			Optional<Flag> flag = Flag.getByValue(s);
+			flag.ifPresent(f -> flags.add(f));
+		}
+		
+		return flags;
 	}
 	
 	private static int getIntegerInput(){
